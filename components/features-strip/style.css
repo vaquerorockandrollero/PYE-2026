@@ -1,0 +1,200 @@
+/* ==========================================================
+   FEATURES STRIP
+   Poder y Energía 2026
+========================================================== */
+
+.features-strip{
+
+    position:relative;
+
+    margin-top:-85px;
+
+    z-index:30;
+
+    margin-bottom:5rem;
+
+}
+
+/*==============================
+GRID
+==============================*/
+
+.features-strip__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1.5rem;
+
+    padding:2rem;
+
+    background:var(--color-white);
+
+    border-radius:24px;
+
+    box-shadow:
+        0 20px 50px rgba(15,23,42,.10),
+        0 8px 20px rgba(15,23,42,.05);
+
+}
+
+/*==============================
+CARD
+==============================*/
+
+.feature-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:1rem;
+
+    padding:1rem;
+
+    border-radius:18px;
+
+    transition:
+        transform .30s ease,
+        box-shadow .30s ease,
+        background .30s ease;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-6px);
+
+    background:#f8fafc;
+
+    box-shadow:
+
+        0 12px 30px rgba(0,0,0,.08);
+
+}
+
+/*==============================
+ICON
+==============================*/
+
+.feature-card__icon{
+
+    width:64px;
+    height:64px;
+
+    flex-shrink:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        var(--color-primary),
+        #ffcf33
+    );
+
+    color:#fff;
+
+    font-size:1.45rem;
+
+    box-shadow:
+
+        0 10px 25px rgba(255,193,7,.35);
+
+}
+
+/*==============================
+CONTENT
+==============================*/
+
+.feature-card__content{
+
+    flex:1;
+
+}
+
+.feature-card__content h3{
+
+    margin-bottom:.55rem;
+
+    color:var(--color-dark);
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+}
+
+.feature-card__content p{
+
+    color:var(--color-gray);
+
+    font-size:.95rem;
+
+    line-height:1.65;
+
+}
+
+/*==============================
+RESPONSIVE
+==============================*/
+
+@media (max-width:1200px){
+
+    .features-strip__grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .features-strip{
+
+        margin-top:-55px;
+
+        margin-bottom:4rem;
+
+    }
+
+    .features-strip__grid{
+
+        grid-template-columns:1fr;
+
+        padding:1.5rem;
+
+        gap:1rem;
+
+    }
+
+    .feature-card{
+
+        align-items:center;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .feature-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .feature-card__icon{
+
+        margin:0 auto;
+
+    }
+
+}

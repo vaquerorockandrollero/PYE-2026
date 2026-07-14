@@ -188,3 +188,27 @@
     --z-toast: 3000;
 
 }
+
+/* ==========================================================
+   COMPONENTS
+========================================================== */
+
+/* Buttons */
+
+--btn-height:52px;
+
+--btn-radius:12px;
+
+/* Cards */
+
+--card-radius:24px;
+
+--card-shadow:0 20px 50px rgba(15,23,42,.10);
+
+/* Brands */
+
+--brand-logo-height:60px;
+
+/* Hero */
+
+--hero-overlay-opacity:.88;
