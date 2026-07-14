@@ -1,0 +1,275 @@
+/* ==========================================================
+   BRANDS
+   Vincora Premium UI v0.6
+========================================================== */
+
+.vp-brands{
+
+    padding:140px 0;
+
+    background:#081320;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+/*======================================
+  Encabezado
+======================================*/
+
+.vp-section-heading-light h2{
+
+    color:#ffffff;
+
+}
+
+.vp-section-heading-light p{
+
+    color:rgba(255,255,255,.72);
+
+}
+
+.vp-brands .vp-section-tag{
+
+    background:rgba(255,255,255,.08);
+
+    color:#FFC400;
+
+}
+
+/*======================================
+  Slider
+======================================*/
+
+.vp-brands-slider{
+
+    width:100%;
+
+    overflow:hidden;
+
+    margin-top:60px;
+
+    position:relative;
+
+}
+
+.vp-brands-track{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:80px;
+
+    width:max-content;
+
+    animation:vpBrands 45s linear infinite;
+
+}
+
+.vp-brands-slider.reverse .vp-brands-track{
+
+    animation-direction:reverse;
+
+}
+
+@keyframes vpBrands{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-50%);
+
+    }
+
+}
+
+/*======================================
+  Logos
+======================================*/
+
+.vp-brands-track img{
+
+    height:54px;
+
+    width:auto;
+
+    opacity:.55;
+
+    filter:grayscale(100%) brightness(220%);
+
+    transition:
+
+        transform .35s ease,
+
+        opacity .35s ease,
+
+        filter .35s ease;
+
+    user-select:none;
+
+    pointer-events:auto;
+
+}
+
+.vp-brands-track img:hover{
+
+    opacity:1;
+
+    transform:scale(1.12);
+
+    filter:none;
+
+}
+
+/*======================================
+  Pausar animación
+======================================*/
+
+.vp-brands-slider:hover .vp-brands-track{
+
+    animation-play-state:paused;
+
+}
+
+/*======================================
+  Gradientes laterales
+======================================*/
+
+.vp-brands::before,
+.vp-brands::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:140px;
+
+    height:100%;
+
+    z-index:5;
+
+    pointer-events:none;
+
+}
+
+.vp-brands::before{
+
+    left:0;
+
+    background:linear-gradient(
+        to right,
+        #081320 0%,
+        rgba(8,19,32,0) 100%
+    );
+
+}
+
+.vp-brands::after{
+
+    right:0;
+
+    background:linear-gradient(
+        to left,
+        #081320 0%,
+        rgba(8,19,32,0) 100%
+    );
+
+}
+
+/*======================================
+  Responsive
+======================================*/
+
+@media(max-width:991px){
+
+    .vp-brands{
+
+        padding:90px 0;
+
+    }
+
+    .vp-brands-track{
+
+        gap:50px;
+
+        animation-duration:35s;
+
+    }
+
+    .vp-brands-track img{
+
+        height:40px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .vp-brands-track{
+
+        gap:35px;
+
+    }
+
+    .vp-brands-track img{
+
+        height:32px;
+
+    }
+
+}
+
+/*======================================
+  Watermark
+======================================*/
+
+.vp-brands-watermark{
+
+    position:absolute;
+
+    left:50%;
+
+    top:55%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:clamp(7rem,16vw,20rem);
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    text-align:center;
+
+    line-height:.85;
+
+    color:#ffffff;
+
+    opacity:.025;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    letter-spacing:-6px;
+
+    z-index:0;
+
+}
+
+.vp-brands-watermark span{
+
+    display:block;
+
+}

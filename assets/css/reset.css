@@ -1,0 +1,183 @@
+/* ==========================================================
+   PYE-2026
+   Core UI
+   Archivo: reset.css
+   Descripción:
+   Reset moderno para navegadores.
+   ========================================================== */
+
+/* ===========================
+   Box Model
+=========================== */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+/* ===========================
+   Márgenes
+=========================== */
+
+*{
+    margin:0;
+}
+
+/* ===========================
+   HTML
+=========================== */
+
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+}
+
+/* ===========================
+   Body
+=========================== */
+
+body{
+    min-height:100vh;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* ===========================
+   Multimedia
+=========================== */
+
+img,
+picture,
+svg,
+canvas,
+video{
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+
+/* ===========================
+   Formularios
+=========================== */
+
+input,
+button,
+textarea,
+select{
+    font:inherit;
+    color:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    background:none;
+}
+
+textarea{
+    resize:vertical;
+}
+
+/* ===========================
+   Enlaces
+=========================== */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ===========================
+   Listas
+=========================== */
+
+ul,
+ol{
+    list-style:none;
+    padding:0;
+}
+
+/* ===========================
+   Tablas
+=========================== */
+
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+    width:100%;
+}
+
+/* ===========================
+   Títulos
+=========================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-size:inherit;
+    font-weight:inherit;
+}
+
+/* ===========================
+   Elementos ocultos
+=========================== */
+
+[hidden]{
+    display:none !important;
+}
+
+/* ===========================
+   Elementos interactivos
+=========================== */
+
+button,
+a,
+input,
+textarea,
+select{
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+/* ===========================
+   Focus accesible
+=========================== */
+
+:focus-visible{
+
+    outline:3px solid var(--color-secondary);
+
+    outline-offset:3px;
+
+}
+
+/* ===========================
+   Selección de texto
+=========================== */
+
+::selection{
+
+    background:var(--color-secondary);
+
+    color:var(--color-primary);
+
+}
+
+/* ===========================
+   Evitar overflow accidental
+=========================== */
+
+body{
+
+    overflow-x:hidden;
+
+}

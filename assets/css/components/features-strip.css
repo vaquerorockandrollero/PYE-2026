@@ -1,0 +1,240 @@
+/* ==========================================================
+   FEATURES STRIP
+   Vincora Premium UI v0.4
+========================================================== */
+
+.vp-features{
+
+    position:relative;
+
+    margin-top:-90px;
+
+    z-index:20;
+
+    padding-bottom:90px;
+
+}
+
+.vp-features-card{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    background:rgba(9,25,49,.92);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.22);
+
+}
+
+/* ===================================
+   Card
+=================================== */
+
+.vp-feature{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:36px 30px;
+
+    position:relative;
+
+    transition:.35s ease;
+
+}
+
+.vp-feature:not(:last-child){
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+}
+
+.vp-feature:hover{
+
+    background:rgba(255,255,255,.05);
+
+}
+
+/* ===================================
+   Icono
+=================================== */
+
+.vp-feature-icon{
+
+    width:72px;
+
+    height:72px;
+
+    flex-shrink:0;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.vp-feature:hover .vp-feature-icon{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,196,0,.15);
+
+}
+
+.vp-feature-icon img{
+
+    width:42px;
+
+    height:42px;
+
+    display:block;
+
+}
+
+/* ===================================
+   Contenido
+=================================== */
+
+.vp-feature-content h3{
+
+    color:#ffffff;
+
+    font-size:1.30rem;
+
+    line-height:1.25;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+.vp-feature-content span{
+
+    color:#FFC400;
+
+}
+
+.vp-feature-content p{
+
+    color:rgba(255,255,255,.78);
+
+    line-height:1.7;
+
+    font-size:.95rem;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media(max-width:1200px){
+
+    .vp-features-card{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .vp-feature:nth-child(2){
+
+        border-right:none;
+
+    }
+
+    .vp-feature{
+
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+    }
+
+    .vp-feature:nth-child(3),
+    .vp-feature:nth-child(4){
+
+        border-bottom:none;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .vp-features{
+
+        margin-top:-50px;
+
+    }
+
+    .vp-features-card{
+
+        grid-template-columns:1fr;
+
+        border-radius:22px;
+
+    }
+
+    .vp-feature{
+
+        border-right:none !important;
+
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+        padding:28px 24px;
+
+    }
+
+    .vp-feature:last-child{
+
+        border-bottom:none;
+
+    }
+
+}
+
+/* ===================================
+   Animaciones
+=================================== */
+
+.vp-feature{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+}
+
+.vp-feature.vp-visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}

@@ -1,0 +1,452 @@
+/* ==========================================================
+   VINCORA PREMIUM UI
+   Navbar v0.2
+========================================================== */
+
+.vp-navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    transition:.35s ease;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.vp-navbar.scrolled{
+
+    background:#ffffff;
+
+    border-bottom:1px solid #ececec;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.vp-navbar .vp-container{
+
+    height:82px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.vp-logo img{
+
+    height:52px;
+
+    display:block;
+
+}
+
+.vp-nav{
+
+    margin-left:auto;
+
+}
+
+.vp-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:38px;
+
+    list-style:none;
+
+}
+
+.vp-menu li{
+
+    position:relative;
+
+}
+
+.vp-menu a,
+.vp-dropdown-toggle{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    transition:.30s;
+
+}
+
+.vp-navbar.scrolled a,
+.vp-navbar.scrolled .vp-dropdown-toggle{
+
+    color:#162033;
+
+}
+
+.vp-menu a:hover,
+.vp-dropdown-toggle:hover{
+
+    color:var(--vp-primary);
+
+}
+
+.vp-arrow{
+
+    transition:.30s;
+
+}
+
+.vp-dropdown:hover .vp-arrow{
+
+    transform:rotate(180deg);
+
+}
+
+/* Dropdown */
+
+.vp-dropdown-menu{
+
+    position:absolute;
+
+    top:58px;
+
+    left:0;
+
+    width:330px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+    padding:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:.30s;
+
+}
+
+.vp-dropdown:hover .vp-dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+.vp-dropdown-menu a{
+
+    color:#233247 !important;
+
+    padding:12px 16px;
+
+    border-radius:12px;
+
+    transition:.25s;
+
+}
+
+.vp-dropdown-menu a:hover{
+
+    background:#f4f8fc;
+
+    color:var(--vp-primary);
+
+}
+
+/* Botón */
+
+.vp-btn-contact{
+
+    background:var(--vp-primary);
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    transition:.30s;
+
+    margin-left:35px;
+
+}
+
+.vp-btn-contact:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(0,91,170,.25);
+
+}
+
+/* Hamburguesa */
+
+.vp-mobile-toggle{
+
+    display:none;
+
+    width:44px;
+
+    height:44px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.vp-mobile-toggle span{
+
+    display:block;
+
+    height:2px;
+
+    margin:7px 0;
+
+    background:#ffffff;
+
+    transition:.30s;
+
+}
+
+.vp-navbar.scrolled .vp-mobile-toggle span{
+
+    background:#162033;
+
+}
+
+/* Overlay */
+
+.vp-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.30s;
+
+    z-index:998;
+
+}
+
+.vp-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* Panel móvil */
+
+.vp-mobile-menu{
+
+    position:fixed;
+
+    top:0;
+
+    right:-100%;
+
+    width:320px;
+
+    height:100vh;
+
+    background:#ffffff;
+
+    z-index:9999;
+
+    transition:.35s ease;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:28px;
+
+}
+
+.vp-mobile-menu.active{
+
+    right:0;
+
+}
+
+.vp-mobile-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
+}
+
+.vp-mobile-header img{
+
+    height:44px;
+
+}
+
+.vp-mobile-header button{
+
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.vp-mobile-menu ul{
+
+    list-style:none;
+
+}
+
+.vp-mobile-menu li{
+
+    margin-bottom:18px;
+
+}
+
+.vp-mobile-menu a,
+.vp-mobile-menu button{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    text-align:left;
+
+    text-decoration:none;
+
+    color:#162033;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.vp-mobile-dropdown ul{
+
+    margin-top:14px;
+
+    padding-left:18px;
+
+}
+
+.vp-mobile-dropdown ul li{
+
+    margin-bottom:12px;
+
+}
+
+.vp-btn-mobile{
+
+    margin-top:auto;
+
+    background:var(--vp-primary);
+
+    color:#ffffff;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:16px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+    .vp-nav{
+
+        display:none;
+
+    }
+
+    .vp-btn-contact{
+
+        display:none;
+
+    }
+
+    .vp-mobile-toggle{
+
+        display:block;
+
+    }
+
+}

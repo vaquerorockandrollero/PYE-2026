@@ -1,0 +1,373 @@
+/* ==========================================================
+   FOOTER PREMIUM
+   Vincora Premium UI v0.9
+========================================================== */
+
+.vp-footer{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#07111D;
+
+    color:#ffffff;
+
+    padding-top:0;
+
+}
+
+/*======================================
+  Línea superior
+======================================*/
+
+.vp-footer-top-line{
+
+    height:4px;
+
+    width:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #FFC400,
+            #005BAA,
+            #00B8FF,
+            #005BAA,
+            #FFC400
+        );
+
+    background-size:300%;
+
+    animation:footerLine 12s linear infinite;
+
+}
+
+@keyframes footerLine{
+
+    from{
+
+        background-position:0%;
+
+    }
+
+    to{
+
+        background-position:300%;
+
+    }
+
+}
+
+/*======================================
+  Fondo mapa
+======================================*/
+
+.vp-footer-map{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:url("../../img/map/mexico-outline.svg");
+
+    background-repeat:no-repeat;
+
+    background-position:center;
+
+    background-size:650px;
+
+    opacity:.025;
+
+    pointer-events:none;
+
+}
+
+/*======================================
+  Grid
+======================================*/
+
+.vp-footer-grid{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1.4fr;
+
+    gap:70px;
+
+    padding:90px 0 70px;
+
+}
+
+/*======================================
+  Logo
+======================================*/
+
+.vp-footer-brand img{
+
+    width:260px;
+
+    margin-bottom:28px;
+
+}
+
+.vp-footer-brand p{
+
+    color:rgba(255,255,255,.72);
+
+    line-height:1.9;
+
+    max-width:420px;
+
+}
+
+/*======================================
+  Columnas
+======================================*/
+
+.vp-footer h4{
+
+    color:#FFC400;
+
+    margin-bottom:24px;
+
+    font-size:1.1rem;
+
+}
+
+.vp-footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.vp-footer-links a{
+
+    color:rgba(255,255,255,.72);
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.30s;
+
+}
+
+.vp-footer-links a:hover{
+
+    color:#ffffff;
+
+    padding-left:8px;
+
+}
+
+/*======================================
+  Contacto
+======================================*/
+
+.vp-footer-contact p{
+
+    color:rgba(255,255,255,.70);
+
+    margin-bottom:18px;
+
+}
+
+.vp-footer-contact a{
+
+    display:block;
+
+    margin-bottom:14px;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    transition:.30s;
+
+}
+
+.vp-footer-contact a:hover{
+
+    color:#FFC400;
+
+}
+
+/*======================================
+  Redes
+======================================*/
+
+.vp-footer-social{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:30px;
+
+}
+
+.vp-footer-social a{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.30s;
+
+}
+
+.vp-footer-social a:hover{
+
+    background:#FFC400;
+
+    color:#162033;
+
+}
+
+/*======================================
+  Footer inferior
+======================================*/
+
+.vp-footer-bottom{
+
+    position:relative;
+
+    z-index:2;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:28px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.vp-footer-bottom p{
+
+    color:rgba(255,255,255,.60);
+
+    font-size:.95rem;
+
+}
+
+.vp-footer-bottom strong{
+
+    color:#FFC400;
+
+}
+
+/*======================================
+  Hover elegante
+======================================*/
+
+.vp-footer-links a,
+.vp-footer-contact a,
+.vp-footer-social a{
+
+    transition:
+
+        color .3s,
+
+        transform .3s,
+
+        background .3s;
+
+}
+
+/*======================================
+  Responsive
+======================================*/
+
+@media(max-width:1100px){
+
+    .vp-footer-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .vp-footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+        padding:70px 0 50px;
+
+    }
+
+    .vp-footer-bottom{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .vp-footer-brand img{
+
+        width:220px;
+
+    }
+
+    .vp-footer-map{
+
+        background-size:420px;
+
+    }
+
+}
+
+/*======================================
+  Animación de entrada
+======================================*/
+
+.vp-footer{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+}
+
+.vp-footer.vp-show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+
+}

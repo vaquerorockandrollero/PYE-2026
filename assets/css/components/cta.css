@@ -1,0 +1,301 @@
+/* ==========================================================
+   CTA PREMIUM
+   Vincora Premium UI v0.8
+========================================================== */
+
+.vp-cta{
+
+    padding:140px 0;
+
+    background:#F7F9FC;
+
+    position:relative;
+
+}
+
+/*======================================
+  Tarjeta
+======================================*/
+
+.vp-cta-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+    padding:70px;
+
+    border-radius:36px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #005BAA 0%,
+            #0A74D3 55%,
+            #0D8BFF 100%
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 35px 80px rgba(0,91,170,.25);
+
+}
+
+/*======================================
+  Brillo decorativo
+======================================*/
+
+.vp-cta-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+
+    right:-120px;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    filter:blur(10px);
+
+}
+
+.vp-cta-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(255,255,255,.08) 50%,
+            transparent 80%
+        );
+
+    transform:translateX(-120%);
+
+    transition:1.2s;
+
+}
+
+/*======================================
+  Hover
+======================================*/
+
+.vp-cta-card:hover::after{
+
+    transform:translateX(120%);
+
+}
+
+/*======================================
+  Texto
+======================================*/
+
+.vp-cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.vp-cta .vp-section-tag{
+
+    background:rgba(255,255,255,.12);
+
+    color:#FFD54A;
+
+    margin-bottom:24px;
+
+}
+
+.vp-cta h2{
+
+    font-size:clamp(2.6rem,5vw,4.2rem);
+
+    line-height:1.1;
+
+    margin-bottom:26px;
+
+    color:#fff;
+
+}
+
+.vp-cta p{
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    color:rgba(255,255,255,.88);
+
+    max-width:700px;
+
+}
+
+/*======================================
+  Acciones
+======================================*/
+
+.vp-cta-actions{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.vp-cta-actions .vp-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    min-height:60px;
+
+}
+
+/* Botón principal */
+
+.vp-cta-actions .vp-btn-primary{
+
+    background:#FFC400;
+
+    color:#162033;
+
+    font-weight:700;
+
+}
+
+.vp-cta-actions .vp-btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 20px 45px rgba(255,196,0,.35);
+
+}
+
+/* Botón secundario */
+
+.vp-cta-actions .vp-btn-secondary{
+
+    border:2px solid rgba(255,255,255,.30);
+
+    color:#fff;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.vp-cta-actions .vp-btn-secondary:hover{
+
+    background:#fff;
+
+    color:#005BAA;
+
+}
+
+/*======================================
+  Responsive
+======================================*/
+
+@media(max-width:991px){
+
+    .vp-cta{
+
+        padding:90px 0;
+
+    }
+
+    .vp-cta-card{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        padding:50px 35px;
+
+        gap:45px;
+
+    }
+
+    .vp-cta p{
+
+        margin:auto;
+
+    }
+
+}
+
+@media(max-width:640px){
+
+    .vp-cta-card{
+
+        border-radius:24px;
+
+        padding:40px 24px;
+
+    }
+
+    .vp-cta h2{
+
+        font-size:2.2rem;
+
+    }
+
+}
+/*======================================
+  Animación de entrada
+======================================*/
+
+.vp-cta-card{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+}
+
+.vp-cta-card.vp-show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+
+}

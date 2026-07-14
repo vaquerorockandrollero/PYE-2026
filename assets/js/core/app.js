@@ -1,0 +1,1 @@
+console.log('Vincora Premium UI v0.1 cargado');

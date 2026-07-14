@@ -1,0 +1,317 @@
+/* ==========================================================
+   PYE-2026
+   Core UI
+   Componente: Footer
+   Archivo: style.css
+   Versión: 1.0
+========================================================== */
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.site-footer{
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+    margin-top:var(--space-24);
+
+}
+
+.site-footer .container{
+
+    padding-top:var(--space-16);
+
+    padding-bottom:var(--space-8);
+
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:var(--space-12);
+
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.footer-logo{
+
+    display:inline-block;
+
+    margin-bottom:var(--space-6);
+
+}
+
+.footer-logo img{
+
+    display:block;
+
+    width:auto;
+
+    height:60px;
+
+}
+
+/* ==========================================================
+   ESLOGAN
+========================================================== */
+
+.footer-slogan{
+
+    color:var(--color-secondary);
+
+    font-size:var(--font-size-lg);
+
+    font-weight:var(--font-bold);
+
+    line-height:1.4;
+
+    margin-bottom:var(--space-5);
+
+}
+
+/* ==========================================================
+   DESCRIPCIÓN
+========================================================== */
+
+.footer-description{
+
+    color:rgba(255,255,255,.85);
+
+    line-height:1.7;
+
+    max-width:420px;
+
+}
+
+/* ==========================================================
+   TÍTULOS
+========================================================== */
+
+.site-footer h3{
+
+    color:var(--color-secondary);
+
+    margin-bottom:var(--space-6);
+
+    font-size:var(--font-size-lg);
+
+}
+
+/* ==========================================================
+   MENÚ
+========================================================== */
+
+.footer-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-4);
+
+}
+
+.footer-menu a{
+
+    color:rgba(255,255,255,.85);
+
+    transition:color var(--transition-fast);
+
+}
+
+.footer-menu a:hover{
+
+    color:var(--color-secondary);
+
+}
+
+/* ==========================================================
+   CONTACTO
+========================================================== */
+
+.footer-contact-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-4);
+
+}
+
+.footer-contact-list li{
+
+    color:rgba(255,255,255,.85);
+
+    line-height:1.6;
+
+}
+
+.footer-contact-list a{
+
+    color:inherit;
+
+}
+
+.footer-contact-list a:hover{
+
+    color:var(--color-secondary);
+
+}
+
+/* ==========================================================
+   REDES
+========================================================== */
+
+.footer-social-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:var(--space-4);
+
+    margin-bottom:var(--space-8);
+
+}
+
+.footer-social-links a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.10);
+
+    color:var(--color-white);
+
+    transition:
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
+
+}
+
+.footer-social-links a:hover{
+
+    background:var(--color-secondary);
+
+    color:var(--color-primary);
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.footer-cta{
+
+    margin-top:var(--space-4);
+
+}
+
+/* ==========================================================
+   COPYRIGHT
+========================================================== */
+
+.footer-bottom{
+
+    margin-top:var(--space-16);
+
+    padding-top:var(--space-8);
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    text-align:center;
+
+}
+
+.footer-bottom p{
+
+    color:rgba(255,255,255,.70);
+
+    font-size:var(--font-size-sm);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .footer-grid{
+
+        grid-template-columns:1fr 1fr;
+
+        gap:var(--space-10);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:var(--space-8);
+
+    }
+
+    .footer-company{
+
+        text-align:center;
+
+    }
+
+    .footer-logo{
+
+        display:flex;
+
+        justify-content:center;
+
+    }
+
+    .footer-description{
+
+        max-width:none;
+
+    }
+
+    .footer-social-links{
+
+        justify-content:center;
+
+    }
+
+    .footer-bottom{
+
+        margin-top:var(--space-10);
+
+    }
+
+}
