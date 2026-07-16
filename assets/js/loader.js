@@ -1,154 +1,172 @@
-/**
- * ==========================================================
- * COMPONENT LOADER
- * Poder y Energía 2026
- * ==========================================================
- */
+/* ==========================================================
+   PYE-2026
+   Loader
+   Archivo: loader.js
+   Versión: 3.0
+========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+"use strict";
 
-    loadComponents();
+/* ==========================================================
+   LOADER DE COMPONENTES
+========================================================== */
 
-});
+class ComponentLoader {
 
-/*==========================================================
-COMPONENTS
-==========================================================*/
+    constructor(){
 
-const components = [
-
-    {
-        id: "header",
-        html: "components/header/index.html",
-        css: "components/header/style.css"
-    },
-
-    {
-        id: "hero",
-        html: "components/hero/index.html",
-        css: "components/hero/style.css"
-    },
-
-    {
-        id: "features-strip",
-        html: "components/features-strip/index.html",
-        css: "components/features-strip/style.css"
-    },
-
-    {
-        id: "solutions",
-        html: "components/solutions/index.html",
-        css: "components/solutions/style.css"
-    },
-
-    {
-        id: "brands",
-        html: "components/brands/index.html",
-        css: "components/brands/style.css"
-    },
-
-    {
-        id: "experience",
-        html: "components/experience/index.html",
-        css: "components/experience/style.css"
-    },
-
-    {
-        id: "process",
-        html: "components/process/index.html",
-        css: "components/process/style.css"
-    },
-
-    {
-        id: "cta",
-        html: "components/cta/index.html",
-        css: "components/cta/style.css"
-    },
-
-    {
-        id: "footer",
-        html: "components/footer/index.html",
-        css: "components/footer/style.css"
-    }
-
-];
-
-/*==========================================================
-LOAD COMPONENTS
-==========================================================*/
-
-async function loadComponents(){
-
-    for(const component of components){
-
-        loadCSS(component.css);
-
-        await loadHTML(component);
+        this.loadedScripts = new Set();
 
     }
 
-}
+    /* ======================================================
+       CARGAR HTML
+    ====================================================== */
 
-/*==========================================================
-LOAD HTML
-==========================================================*/
+    async loadHTML(containerId, file){
 
-async function loadHTML(component){
+        const container = document.getElementById(containerId);
 
-    const container = document.getElementById(component.id);
+        if(!container){
 
-    if(!container){
+            console.warn(`Contenedor #${containerId} no encontrado.`);
 
-        return;
-
-    }
-
-    try{
-
-        const response = await fetch(component.html);
-
-        if(!response.ok){
-
-            throw new Error(component.html);
+            return;
 
         }
 
-        container.innerHTML = await response.text();
+        try{
+
+            const response = await fetch(file);
+
+            if(!response.ok){
+
+                throw new Error(`No se pudo cargar: ${file}`);
+
+            }
+
+            container.innerHTML = await response.text();
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            throw error;
+
+        }
 
     }
 
-    catch(error){
+    /* ======================================================
+       CARGAR SCRIPT
+    ====================================================== */
 
-        console.error(
+    async loadScript(file){
 
-            `Error loading ${component.html}`,
+        if(this.loadedScripts.has(file)){
 
-            error
+            return;
 
-        );
+        }
+
+        return new Promise((resolve,reject)=>{
+
+            const script = document.createElement("script");
+
+            script.src = file;
+
+            script.defer = true;
+
+            script.onload = () => {
+
+                this.loadedScripts.add(file);
+
+                resolve();
+
+            };
+
+            script.onerror = () => {
+
+                reject(
+                    new Error(`No se pudo cargar: ${file}`)
+                );
+
+            };
+
+            document.head.appendChild(script);
+
+        });
 
     }
 
 }
 
-/*==========================================================
-LOAD CSS
-==========================================================*/
+/* ==========================================================
+   INSTANCIA
+========================================================== */
 
-function loadCSS(file){
+const Loader = new ComponentLoader();
 
-    if(document.querySelector(`link[href="${file}"]`)){
+/* ==========================================================
+   HEADER
+========================================================== */
 
-        return;
+async function loadHeader(){
 
-    }
+    await Loader.loadHTML(
 
-    const link = document.createElement("link");
+        "header",
 
-    link.rel = "stylesheet";
+        "/components/header/index.html"
 
-    link.href = file;
+    );
 
-    document.head.appendChild(link);
+    await Loader.loadScript(
+
+        "/components/header/script.js"
+
+    );
 
 }
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+async function loadFooter(){
+
+    await Loader.loadHTML(
+
+        "footer",
+
+        "/components/footer/index.html"
+
+    );
+
+    await Loader.loadScript(
+
+        "/components/footer/script.js"
+
+    );
+
+}
+
+/* ==========================================================
+   CARGAR COMPONENTES
+========================================================== */
+
+async function loadComponents(){
+
+    await loadHeader();
+
+    await loadFooter();
+
+}
+
+/* ==========================================================
+   API PÚBLICA
+========================================================== */
+
+window.loadComponents = loadComponents;

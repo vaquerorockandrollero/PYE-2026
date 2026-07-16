@@ -103,37 +103,19 @@ const SiteConfig = {
 
     menu: [
 
-        {
-            text: "Inicio",
-            url: "/"
-        },
+    { text: "Inicio", url: "#hero" },
 
-        {
-            text: "Soluciones",
-            url: "/soluciones/"
-        },
+    { text: "Soluciones", url: "#solutions" },
 
-        {
-            text: "Marcas",
-            url: "/marcas/"
-        },
+    { text: "Marcas", url: "#brands" },
 
-        {
-            text: "Catálogo",
-            url: "/catalogo/"
-        },
+    { text: "Catálogo", url: "#" },
 
-        {
-            text: "Nosotros",
-            url: "/nosotros/"
-        },
+    { text: "Nosotros", url: "#" },
 
-        {
-            text: "Contacto",
-            url: "/contacto/"
-        }
+    { text: "Contacto", url: "#footer" }
 
-    ],
+],
 
     /* ======================================================
        CTA PRINCIPAL
@@ -141,11 +123,11 @@ const SiteConfig = {
 
     cta: {
 
-        text: "Solicitar asesoría",
+    text: "Solicitar asesoría",
 
-        url: "/contacto/"
+    url: "#footer"
 
-    },
+},
 
     /* ======================================================
        COPYRIGHT
