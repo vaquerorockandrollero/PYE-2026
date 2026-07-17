@@ -1,82 +1,205 @@
-# CHANGELOG
+/**
+ * ==========================================================
+ * COMPONENT LOADER
+ * Poder y Energía 2026
+ * Versión 2.0
+ * ==========================================================
+ */
 
-Todos los cambios importantes del proyecto serán documentados en este archivo.
+document.addEventListener("DOMContentLoaded", async () => {
 
-El proyecto utiliza Versionado Semántico (SemVer).
+    await loadComponents();
 
-Formato:
+});
 
-MAJOR.MINOR.PATCH
+/*==========================================================
+COMPONENTS
+==========================================================*/
 
-Ejemplo:
+const components = [
 
-1.0.0
+    {
+        id: "header",
+        html: "components/header/index.html",
+        css: "components/header/style.css",
+        js: "components/header/script.js",
+        init: "initHeader"
+    },
 
----
+    {
+        id: "hero",
+        html: "components/hero/index.html",
+        css: "components/hero/style.css",
+        js: "components/hero/script.js",
+        init: "initHero"
+    },
 
-# [1.0.0-alpha] - Julio 2026
+    {
+        id: "features-strip",
+        html: "components/features-strip/index.html",
+        css: "components/features-strip/style.css",
+        js: "components/features-strip/script.js",
+        init: "initFeaturesStrip"
+    },
 
-## M01 - Core UI
+    {
+        id: "solutions",
+        html: "components/solutions/index.html",
+        css: "components/solutions/style.css",
+        js: "components/solutions/script.js",
+        init: "initSolutions"
+    },
 
-### Agregado
+    {
+        id: "brands",
+        html: "components/brands/index.html",
+        css: "components/brands/style.css",
+        js: "components/brands/script.js",
+        init: "initBrands"
+    },
 
-- Arquitectura modular del proyecto.
-- Configuración global mediante `config/site.config.js`.
-- Sistema de carga de componentes mediante `js/loader.js`.
-- Punto de entrada principal mediante `js/app.js`.
-- Componente Header.
-- Componente Footer.
-- Sistema global de botones.
-- Documentación del Header.
-- Documentación del Footer.
-- Documento maestro del proyecto (`documentation/proyecto.md`).
+    {
+        id: "experience",
+        html: "components/experience/index.html",
+        css: "components/experience/style.css",
+        js: "components/experience/script.js",
+        init: "initExperience"
+    },
 
----
+    {
+        id: "process",
+        html: "components/process/index.html",
+        css: "components/process/style.css",
+        js: "components/process/script.js",
+        init: "initProcess"
+    },
 
-### Características
+    {
+        id: "cta",
+        html: "components/cta/index.html",
+        css: "components/cta/style.css",
+        js: "components/cta/script.js",
+        init: "initCTA"
+    },
 
-- Arquitectura desacoplada.
-- Componentes reutilizables.
-- Configuración centralizada.
-- Preparado para SEO.
-- Diseño Responsive.
-- Mobile First.
-- Código ES6+.
-- Sin dependencias de jQuery.
-- Estructura preparada para crecimiento.
+    {
+        id: "footer",
+        html: "components/footer/index.html",
+        css: "components/footer/style.css",
+        js: "components/footer/script.js",
+        init: "initFooter"
+    }
 
----
+];
 
-### Convenciones
+/*==========================================================
+LOAD COMPONENTS
+==========================================================*/
 
-- Toda la información institucional proviene de `SiteConfig`.
-- Los componentes no contienen información fija.
-- Todos los componentes deberán incluir su propio `README.md`.
-- Todo módulo terminado deberá pasar auditoría antes de integrarse.
+async function loadComponents(){
 
----
+    for(const component of components){
 
-### Próximos módulos
+        loadCSS(component.css);
 
-- M02 - Home
-- M03 - Catálogo
-- M04 - Producto
-- M05 - Contacto
-- M06 - Nosotros
-- M07 - Panel Administrativo
+        await loadHTML(component);
 
----
+        await loadJS(component.js);
 
-## Estado del proyecto
+        initComponent(component.init);
 
-Versión actual:
+    }
 
-**1.0.0-alpha**
+}
 
-Estado:
+/*==========================================================
+LOAD HTML
+==========================================================*/
 
-**Core UI finalizado.**
+async function loadHTML(component){
 
-La arquitectura queda congelada a partir de esta versión.
+    const container = document.getElementById(component.id);
 
-Los siguientes cambios estarán enfocados únicamente en el desarrollo de funcionalidades y nuevas páginas.
+    if(!container) return;
+
+    try{
+
+        const response = await fetch(component.html);
+
+        if(!response.ok){
+
+            throw new Error(component.html);
+
+        }
+
+        container.innerHTML = await response.text();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+/*==========================================================
+LOAD CSS
+==========================================================*/
+
+function loadCSS(file){
+
+    if(document.querySelector(`link[href="${file}"]`)) return;
+
+    const link = document.createElement("link");
+
+    link.rel = "stylesheet";
+
+    link.href = file;
+
+    document.head.appendChild(link);
+
+}
+
+/*==========================================================
+LOAD JS
+==========================================================*/
+
+function loadJS(file){
+
+    return new Promise(resolve=>{
+
+        if(document.querySelector(`script[src="${file}"]`)){
+
+            resolve();
+
+            return;
+
+        }
+
+        const script=document.createElement("script");
+
+        script.src=file;
+
+        script.onload=resolve;
+
+        document.body.appendChild(script);
+
+    });
+
+}
+
+/*==========================================================
+INIT COMPONENT
+==========================================================*/
+
+function initComponent(fn){
+
+    if(typeof window[fn]==="function"){
+
+        window[fn]();
+
+    }
+
+}

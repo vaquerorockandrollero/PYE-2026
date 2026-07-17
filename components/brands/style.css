@@ -1,0 +1,170 @@
+/* ==========================================================
+   BRANDS
+   Poder y Energía 2026
+========================================================== */
+
+/*==========================================================
+SECTION
+==========================================================*/
+
+.brands{
+
+    padding:7rem 0;
+
+    background:var(--color-white);
+
+}
+
+/*==========================================================
+GRID
+==========================================================*/
+
+.brands__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1.75rem;
+
+    margin-top:4rem;
+
+}
+
+/*==========================================================
+CARD
+==========================================================*/
+
+.brand-card{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:140px;
+
+    padding:2rem;
+
+    background:var(--color-white);
+
+    border:1px solid rgba(15,23,42,.06);
+
+    border-radius:22px;
+
+    box-shadow:
+
+        0 12px 30px rgba(15,23,42,.05);
+
+    transition:
+
+        transform .30s ease,
+
+        box-shadow .30s ease,
+
+        border-color .30s ease;
+
+}
+
+.brand-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(255,193,7,.30);
+
+    box-shadow:
+
+        0 22px 50px rgba(15,23,42,.10);
+
+}
+
+/*==========================================================
+LOGO
+==========================================================*/
+
+.brand-card img{
+
+    width:auto;
+
+    height:auto;
+
+    max-width:170px;
+
+    max-height:var(--brand-logo-height);
+
+    object-fit:contain;
+
+    filter:grayscale(100%);
+
+    opacity:.78;
+
+    transition:
+
+        transform .30s ease,
+
+        opacity .30s ease;
+
+}
+
+.brand-card:hover img{
+
+    opacity:1;
+
+    transform:scale(1.05);
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:1200px){
+
+    .brands__grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .brands__grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .brands{
+
+        padding:5rem 0;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .brands__grid{
+
+        grid-template-columns:1fr;
+
+        gap:1rem;
+
+    }
+
+    .brand-card{
+
+        min-height:120px;
+
+        padding:1.75rem;
+
+    }
+
+}
